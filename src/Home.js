@@ -19,7 +19,6 @@ function Home() {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   // Constants
-  const OPENAI_API_KEY = "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";
   const JIKAN_API_URL = "https://api.jikan.moe/v4";
 
   // Define your loading animation clips here
