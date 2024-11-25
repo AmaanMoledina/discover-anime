@@ -3,6 +3,7 @@ const rateLimit = require("express-rate-limit");
 const axios = require("axios");
 const cors = require("cors");
 const path = require("path");
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "build")));
 
 const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+// Debugging: Log the OpenAI API Key
 
 // Rate limiter
 const limiter = rateLimit({
