@@ -37,7 +37,7 @@ function Home() {
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [loading]);
+  }, [loading,animeClips.length]);
 
   const truncateText = (text, limit) => {
     if (text.length > limit) {
