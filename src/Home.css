@@ -435,4 +435,9 @@
   button:hover:not(:disabled) {
     background-color: #ff2d55;
   }
+  .loading-gif {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
   

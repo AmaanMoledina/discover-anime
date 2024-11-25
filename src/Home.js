@@ -24,11 +24,11 @@ function Home() {
 
   // Define your loading animation clips here
   const animeClips = [
-    "https://giphy.com/gifs/dbz-dragonball-z-fighting-gif-YXUCDszoiVGOA",
-    "https://giphy.com/gifs/gaming-fortnite-goku-dragonball-z-F9MwjJeXB1w5GONd7X",
-    "https://giphy.com/gifs/death-note-3pTtbLJ7Jd0YM"
-
+    "https://media.giphy.com/media/YXUCDszoiVGOA/giphy.gif",
+    "https://media.giphy.com/media/F9MwjJeXB1w5GONd7X/giphy.gif",
+    "https://media.giphy.com/media/3pTtbLJ7Jd0YM/giphy.gif"
   ];
+  
 
   // Loading animation effect
   useEffect(() => {
@@ -263,40 +263,38 @@ function Home() {
 
 
 
-      {loading ? (
-        <div className="loading-container">
-          {animeClips.length > 0 && (
-            <video
-              src={animeClips[loadingIndex]}
-              autoPlay
-              loop
-              muted
-              className="loading-video"
-            />
-          )}
-          <p>Fetching your recommendations...</p>
-        </div>
-      ) : (
-        <section className="anime-grid">
-        {animeList.map((anime, index) => (
-          <div
-            key={`${anime.id}-${index}`}
-            className="anime-card"
-            onClick={() => setSelectedAnime(anime)}
-          >
-            <img src={anime.image} alt={anime.title} className="anime-image" />
-            <div className="card-content">
-              <h3 className="anime-title">{anime.title}</h3>
-              <p className="anime-description">{truncateText(anime.description, 70)}</p>
-              <div className="card-footer">
-                <span className="confidence">Confidence: {anime.confidence}/10</span>
-              </div>
-            </div>
+{loading ? (
+  <div className="loading-container">
+    {animeClips.length > 0 && (
+      <img
+        src={animeClips[loadingIndex]}
+        alt="Loading Animation"
+        className="loading-gif"
+      />
+    )}
+    <p>Fetching your recommendations...</p>
+  </div>
+) : (
+  <section className="anime-grid">
+    {animeList.map((anime, index) => (
+      <div
+        key={`${anime.id}-${index}`}
+        className="anime-card"
+        onClick={() => setSelectedAnime(anime)}
+      >
+        <img src={anime.image} alt={anime.title} className="anime-image" />
+        <div className="card-content">
+          <h3 className="anime-title">{anime.title}</h3>
+          <p className="anime-description">{truncateText(anime.description, 70)}</p>
+          <div className="card-footer">
+            <span className="confidence">Confidence: {anime.confidence}/10</span>
           </div>
-        ))}
-      </section>
-      
-      )}
+        </div>
+      </div>
+    ))}
+  </section>
+)}
+
 
 <Modal
   isOpen={!!selectedAnime}
