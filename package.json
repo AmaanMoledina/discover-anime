@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-rate-limit": "^7.4.1",
     "react": "^18.3.1",
@@ -15,16 +16,22 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^7.0.1",
     "react-scripts": "5.0.1",
+    "serverless-http": "^3.2.0",
     "styled-components": "^6.1.13",
     "typeit": "^8.8.7",
     "typeit-react": "^2.7.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "client": "react-scripts start",
+    "server": "nodemon server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
   },
   "eslintConfig": {
     "extends": [
@@ -44,4 +51,4 @@
       "last 1 safari version"
     ]
   }
-}
+ }
