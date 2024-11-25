@@ -6,9 +6,18 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^7.0.1",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.13",
+    "typeit": "^8.8.7",
+    "typeit-react": "^2.7.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

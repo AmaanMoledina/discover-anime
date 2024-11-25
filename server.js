@@ -2,10 +2,14 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const axios = require("axios");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the React frontend
+app.use(express.static(path.join(__dirname, "build")));
 
 const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -59,6 +63,11 @@ app.post("/api/recommendations", async (req, res) => {
     console.error("Error fetching recommendations:", error);
     res.status(500).json({ error: "Failed to fetch recommendations." });
   }
+});
+
+// Serve React frontend for all other routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 const PORT = process.env.PORT || 3001;
