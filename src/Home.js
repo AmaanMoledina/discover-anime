@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import "./Home.css";
 import logo from "./DiscoverAnimelogo.png";
 import TypeIt from "typeit-react";
+const API_BASE_URL = "/api/recommendations";
 
 
 // Set Modal root element
@@ -186,8 +187,8 @@ function Home() {
     setError(null);
   
     try {
-      const response = await axios.post("http://localhost:3001/api/recommendations", {
-        search,
+        const response = await axios.post(`${API_BASE_URL}`, {
+            search,
       });
   
       const rawResponse = response.data.recommendations;
